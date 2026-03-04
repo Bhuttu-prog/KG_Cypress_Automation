@@ -1,0 +1,20 @@
+{
+  "name": "cypress-kg-qa-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "e2e": "cypress open",
+    "e2e:safe": "ELECTRON_DISABLE_SANDBOX=1 cypress open",
+    "e2e:chrome": "cypress open --browser chrome",
+    "2e2": "npx cypress open"
+  },
+  "author": "Konrad Group",
+  "license": "ISC",
+  "devDependencies": {
+    "axe-core": "^4.10.2",
+    "cypress": "12.17.4",
+    "cypress-axe": "^1.4.0"
+  }
+}

@@ -1,0 +1,25 @@
+ID,Module,Test Case,Preconditions,Steps,Expected Result,Priority,Status
+TC01,Login,Access with valid credentials,User on login page,"1. Open https://auction.hiring.kgportal.com/ 2. Enter email: user@example.com 3. Enter password: cAcJrnkDXsHRncF9qHcm 4. Click Sign in",User reaches Campaign Landing Page; KG Auction Hub and Active Campaigns visible,High,Pass
+TC02,Login,Error on wrong password,User on login page,"1. Enter valid email 2. Enter wrong password 3. Click Sign in",Appropriate error message shown; user remains on login,High,Fail
+TC03,Login,Error on wrong email,User on login page,"1. Enter invalid email 2. Enter valid password 3. Click Sign in",Appropriate error message shown; user remains on login,High,Fail
+TC04,Login,Error on invalid/expired token,Session with invalid token,"1. Set invalid token in localStorage 2. Reload or navigate",Redirect to login or error message displayed,Medium,Pass
+TC05,Logout,Logout clears auth and redirects,User logged in,"1. Click Log out / Sign out (or open user menu then logout) 2. Check URL and localStorage",URL shows login or app root; auth token and user info removed from localStorage,High,Blocked
+TC06,Home,Access Campaign Landing Page,User logged in,Navigate to home/landing after login,Campaign Landing Page loads; Active Campaigns section visible,High,Pass
+TC07,Home,View active campaigns,User on Campaign Landing Page,View Active Campaigns section,Active campaign cards/links listed,High,Pass
+TC08,Home,View past campaigns,User on Campaign Landing Page,Scroll to Past Campaigns section (if present),Past campaigns listed when section exists,Medium,Pass
+TC09,Home,Filter campaigns by location,User on Campaign Landing Page with location filter,"1. Open location filter 2. Select a location",Campaign list filters by selected location,Medium,Pass
+TC10,Home,Pagination when more than 8 campaigns,User on Campaign Landing Page with 9+ active campaigns,View campaign list,Pagination controls (e.g. Next) appear,Medium,Pass
+TC11,Error,Page not found on invalid link,Any,"1. Visit /non-existent-page-404 or broken link",Page shows ""Page not found"" message,High,Fail
+TC12,Error,Something went wrong when server down,Any,Simulate server/API failure (e.g. 500),Page shows ""Something went wrong"" or equivalent error,Medium,Pass
+TC13,Accessibility,No AXE violations,On each key page,Run AXE (or browser a11y audit) on Login Landing Campaign Item list,Zero AXE violations,High,Fail
+TC14,Accessibility,AAA compliance,On each key page,Check WCAG 2.1 Level AAA criteria where applicable,No AAA violations for implemented criteria,Medium,Fail
+TC15,Bidding,See list of auction items,User logged in; on a campaign,"1. Open a campaign 2. View items list",All auction items for campaign visible,High,Pass
+TC16,Bidding,Filter items by office,User on campaign items page with office filter,"1. Select office in filter 2. Apply",List filters by selected office,Medium,Pass
+TC17,Bidding,Filter items by category,User on campaign items page with category filter,"1. Select category 2. Apply",List filters by selected category,Medium,Pass
+TC18,Bidding,Add new item to campaign,User on campaign items page with Add option,"1. Click Add (item) 2. Fill required fields 3. Submit",New item added; appears in list,High,Pass
+TC19,Bidding,See auction items donated by me,User on campaign items page with donated by me / My items,"1. Open My items / Donated by me filter or section 2. View list",Only items donated by current user shown,Medium,Pass
+TC20,Bidding,Edit donated item,User has donated items,"1. Find item donated by user 2. Click Edit 3. Change fields 4. Save",Item updates; changes reflected in list,Medium,Pass
+TC21,Bidding,Empty form shows field errors,User on Add item form,"1. Leave required fields empty 2. Submit form",Fields with empty values marked as errors,High,Pass
+TC22,Bidding,Field error clears on interaction,User submitted empty form (errors shown),"1. Focus a field with error 2. Enter valid value or interact",Error state clears for that field,Medium,Pass
+TC23,Bidding,Incorrect value marks field error,User on Add item form,"1. Enter invalid value (e.g. negative price) in a field 2. Blur or submit",Field marked as error,Medium,Pass
+TC24,Bidding,Confirmation modal on incorrect field,User on Add item form,"1. Enter invalid value 2. Interact (blur/submit)",Confirmation modal or alert shown to user,Medium,Pass
